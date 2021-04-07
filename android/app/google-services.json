@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "195600203947",
+    "project_id": "auth-4619a",
+    "storage_bucket": "auth-4619a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195600203947:android:62100772e572475027b7ee",
+        "android_client_info": {
+          "package_name": "com.example.pchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195600203947-0njeu1b1f9s12drkktiugao7k4ukidd4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1Toy5aKo_szkCgqyYvzCwdXVXguqOt5g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195600203947-0njeu1b1f9s12drkktiugao7k4ukidd4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
