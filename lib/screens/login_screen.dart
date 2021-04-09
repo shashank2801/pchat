@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:pchat/components/Button.dart';
 import 'package:pchat/services/authService.dart';
+import 'package:pchat/routes.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:provider/provider.dart';
 
@@ -16,6 +18,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   //final _auth = FirebaseAuth.instance;
+  FirebaseAuth _firebaseAuth;
   String email;
   String password;
 
@@ -65,15 +68,19 @@ class _LoginScreenState extends State<LoginScreen> {
               text: 'Log In',
               color: Colors.lightBlueAccent,
               onPressed: () {
+
                 context.read<AuthenticationService>().signIn(
                   email: email,
                   password: password
                 );
-               // Navigator.pushReplacementNamed(context, Routes.chat_screen);
+
+                
+
+                // String ans = await AuthenticationService(_firebaseAuth).signIn();
+                // if(ans == "Signed In")
+                //   Navigator.pushReplacementNamed(context, Routes.chat_screen);
 
 
-                // if(_auth.currentUser != null)
-                //   Navigator.pushNamed(context, Routes.chat_screen);
               },
             ),
           ],

@@ -12,13 +12,15 @@ import 'screens/welcome_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 
-void main() async{
+Future<void> main() async{
+  //main is async
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(FlashChat());
   }
 
 class FlashChat extends StatelessWidget {
+  //final Future<FirebaseApp> _init = Firebase.initializeApp();
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -44,19 +46,47 @@ class FlashChat extends StatelessWidget {
       ),
     );
   }
+  
+  
+//   Widget build(BuildContext context){
+//     return FutureBuilder(
+//       future: _init,
+//       builder: (context,snapshot){
+//         if(snapshot.hasError){
+//           return Text("Error");
+//         }
+
+//         if(snapshot.connectionState == ConnectionState.done){
+//           return StreamProvider( 
+//             initialData: null,
+//             value: AuthenticationService(_firebaseAuth).myUser,
+//             child: MaterialApp(
+//               debugShowCheckedModeBanner: false,
+//         //initialRoute: Routes.welcome_screen,
+//         routes: {
+//           Routes.welcome_screen : (context) => WelcomeScreen(),
+//           Routes.login_screen : (context) => LoginScreen(),
+//           Routes.registration_screen : (context) => RegistrationScreen(),
+//           Routes.chat_screen : (context) => ChatScreen(),
+//         },
+//         home: MyHome(),
+//             ),
+//           );
+//         }
+
+//         return CircularProgressIndicator();
+//       }
+//       );
+//   }
 }
 
-class MyHome extends StatefulWidget {
-  @override
-  _MyHomeState createState() => _MyHomeState();
-}
+class MyHome extends StatelessWidget {
 
-class _MyHomeState extends State<MyHome> {
-  @override
   Widget build(BuildContext context) {
     final firebaseuser = context.watch<User>();
     // final firebaseuser = context.watch<User>();
     if(firebaseuser != null){
+      Navigator.pop(context);
       return ChatScreen();
     }
 

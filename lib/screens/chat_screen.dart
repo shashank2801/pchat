@@ -56,7 +56,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 // if(gLoggedInUser!=null)
                 //   _googleSignIn.signOut();
 
-                Navigator.pushReplacementNamed(context, Routes.welcome_screen);
+                //Navigator.pushReplacementNamed(context, Routes.welcome_screen);
               }),
         ],
         title: Text('⚡️Chat'),

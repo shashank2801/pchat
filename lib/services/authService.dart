@@ -22,10 +22,10 @@ class AuthenticationService{
   //   }
   // }
 
-    Future<void> signIn({String email,String password}) async{
+    Future signIn({String email,String password}) async{
     try {
-      UserCredential credential = await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
-     // FirebaseUser user = result.user;
+     await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
+           // FirebaseUser user = result.user;
       
       return "Signed In";
 
@@ -40,7 +40,7 @@ class AuthenticationService{
 
   Future<String> signUp({String email,String password}) async{
     try {
-      UserCredential credential = await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
+      await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
       return "Signed Up";
     }
      on FirebaseAuthException catch (e) {
