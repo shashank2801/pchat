@@ -1,10 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+
+
 import 'package:pchat/components/Button.dart';
-
-
 import '../routes.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -17,7 +15,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   AnimationController _animationController;
   Animation<Color> _animation;
 
-    GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
 
   void initState() {
     super.initState();
@@ -32,6 +29,11 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     _animationController.addListener(() {
       setState(() {});
     });
+  }
+
+  void dispose(){
+    _animationController.dispose();
+    super.dispose();
   }
 
   @override
@@ -88,53 +90,53 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               },
             ),
             SizedBox(height:14),
-            OutlinedButton(
-              style: ButtonStyle(
-                overlayColor: MaterialStateProperty.all<Color>(Colors.cyanAccent),
-                //shape: MaterialStateProperty.all<OutlinedBorder>(BorderRadius.circular(40)),
-              ),
+            // OutlinedButton(
+            //   style: ButtonStyle(
+            //     overlayColor: MaterialStateProperty.all<Color>(Colors.cyanAccent),
+            //     //shape: MaterialStateProperty.all<OutlinedBorder>(BorderRadius.circular(40)),
+            //   ),
 
 
               //splashColor: Colors.cyanAccent,
-              onPressed: () async {
+              // onPressed: () async {
                 // final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
                 // final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
 
                 // final AuthCredential credential = GoogleAuthProvider.credential(idToken: googleUser.idToken,accessToken: googleUser.accessToken);
                 // final User user = (await FirebaseAuth.signInWithCredential(credential)).user;
-                try{
-                  await _googleSignIn.signIn();
-                  Navigator.pushNamed(context, Routes.chat_screen);
-                }
-                catch(e){
-                  print(e);
-                }
-              },
+                // try{
+                //   await _googleSignIn.signIn();
+                //   Navigator.pushNamed(context, Routes.chat_screen);
+                // }
+              //   catch(e){
+              //     print(e);
+              //   }
+              // },
               
               // highlightElevation: 4,
               // borderSide: BorderSide(color: Colors.white),
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Image(
-                        image: AssetImage("images/google_logo.png"),
-                        height: 30.0),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: Text(
-                        'Sign in with Google',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
+              // child: Padding(
+              //   padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+              //   child: Row(
+              //     mainAxisSize: MainAxisSize.min,
+              //     mainAxisAlignment: MainAxisAlignment.center,
+              //     children: <Widget>[
+              //       Image(
+              //           image: AssetImage("images/google_logo.png"),
+              //           height: 30.0),
+              //       Padding(
+              //         padding: const EdgeInsets.only(left: 10),
+              //         child: Text(
+              //           'Sign in with Google',
+              //           style: TextStyle(
+              //             color: Colors.white,
+              //           ),
+              //         ),
+              //       )
+              //     ],
+              //   ),
+              // ),
+            // ),
           ],
         ),
       ),

@@ -1,13 +1,9 @@
-
 import 'package:flutter/material.dart';
 
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:pchat/components/constants.dart';
 import 'package:pchat/services/authService.dart';
 import 'package:provider/provider.dart';
 
-import '../constants.dart';
-import '../routes.dart';
 
 class ChatScreen extends StatefulWidget {
   @override
@@ -15,18 +11,18 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
-  final _auth = FirebaseAuth.instance;
-  GoogleSignIn _googleSignIn;
+  // final _auth = FirebaseAuth.instance;
+  // GoogleSignIn _googleSignIn;
 
-  GoogleSignInAccount gLoggedInUser;
-  User loggedInUser;
+  // GoogleSignInAccount gLoggedInUser;
+  // User loggedInUser;
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    //getCurrentUser();
-  }
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   //getCurrentUser();
+  // }
 
   // void getCurrentUser() async {
   //   try{
