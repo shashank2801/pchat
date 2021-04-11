@@ -51,11 +51,12 @@ class AuthenticationService {
     userModel = UserModel(
         uid: uid, username: username, email: email, timestamp: timestamp);
   
-    await userRef.add(userModel.toMap(userModel));
+    await userRef.doc(uid).set(userModel.toMap(userModel));
   }
 
   Future<UserModel> getUserFromDB({String uid}) async {
     final DocumentSnapshot doc = await userRef.doc(uid).get();
+    print(doc);
       return UserModel.fromMap(doc.data());
   }
 }

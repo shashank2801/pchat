@@ -70,7 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     TextFormField(
                       keyboardType: TextInputType.emailAddress,
                       validator: (value) {
-                        if (value == null || value.isEmpty) {
+                        if (value == null || value.isEmpty || !value.contains("@")) {
                           return 'Please enter some text';
                         }
                         return null;
@@ -83,7 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             Icons.mail,
                             color: Colors.grey,
                           ),
-                          hintText: 'Enter your email.'),
+                          hintText: 'Enter your email'),
                     ),
                     SizedBox(
                       height: 8.0,
@@ -130,6 +130,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
                           if(message == "Signed In")
                             Navigator.pop(context);
+
+                          else
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message)));
                         }
                       },
                     ),

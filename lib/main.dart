@@ -9,7 +9,7 @@ import 'package:pchat/services/authService.dart';
 import 'package:pchat/wrapper.dart';
 
 
-import 'screens/chat_screen.dart';
+import 'screens/home_screen.dart';
 import 'screens/login_screen.dart';
 import 'screens/registration_screen.dart';
 import 'screens/welcome_screen.dart';
@@ -43,7 +43,7 @@ class FirebaseTrial extends StatelessWidget {
           Routes.welcome_screen : (context) => WelcomeScreen(),
           Routes.login_screen : (context) => LoginScreen(),
           Routes.registration_screen : (context) => RegistrationScreen(),
-          Routes.chat_screen : (context) => ChatScreen(),
+          Routes.home_screen : (context) => HomeScreen(),
         },
         home: WrapperClass(),
       ),
