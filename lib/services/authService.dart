@@ -9,6 +9,7 @@ class AuthenticationService {
   UserModel userModel = UserModel();
   final userRef = FirebaseFirestore.instance.collection("users");
 
+
   AuthenticationService(this._firebaseAuth);
 
   Future<void> signOut() async {
